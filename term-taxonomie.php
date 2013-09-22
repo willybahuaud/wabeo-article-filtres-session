@@ -1,7 +1,6 @@
 <?php
 
 //on ajoute ce champ de formulaire
-
 $genre = $_SESSION[ 'post-genre' ];
 $terms = get_terms( 'genre-bien' );
 if( ! is_wp_error( $terms ) {
@@ -21,8 +20,21 @@ if( ! is_wp_error( $terms ) {
 //on sinon on en défini une par défaut
 if( isset( $_POST[ 'post-genre' ] ) ) {
     $terms = get_terms( 'genre-bien' );
-    $_SESSION[ 'post-genre' ] = ( in_array( $_POST[ 'post-genre' ], wp_list_pluck( 'slug', $terms ) ) ) ? $_POST[ 'post-genre' ] : false;
+    $_SESSION[ 'post-genre' ] = ( in_array( $_POST[ 'post-genre' ], wp_list_pluck( $terms, 'slug' ) ) ) ? $_POST[ 'post-genre' ] : false;
 }
 
 if( ! isset( $_SESSION[ 'post-genre' ] ) )
     $_SESSION[ 'post-genre' ] = false;
+
+//dans switch_output_order
+//dans la condition
+if( false !== $_SESSION[ 'post-genre' ] ) {
+    $q->set( 'tax_query', array(
+        'relation' => 'AND',
+        array(
+            'taxonomy' => 'genre-bien',
+            'field'    => 'slug',
+            'terms'    => $_SESSION[ 'post-genre' ]
+            )
+        ) );
+}

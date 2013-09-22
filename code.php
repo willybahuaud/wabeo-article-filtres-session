@@ -33,7 +33,8 @@ function switch_output_order( $q ) {
 
         // tri par prix
         if( 'price' == $_SESSION[ 'post-order-by' ] ) {
-            $q->set( 'meta_value_num', '_price' );
+           $q->set( 'meta_key', '_price' );
+            $q->set( 'orderby', 'meta_value_num');
         }
         /* 
         * Par défaut, WordPress tri par date, donc il n'y a pas besoin d'effectuer'

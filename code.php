@@ -8,11 +8,11 @@ function switch_session() {
 
     // Si le switcher à été utilisé, on change la valeur
     if( isset( $_POST[ 'post-order' ] ) ) {
-        $_SESSION[ 'post-order' ] = ( 'ASC' == $_POST['post-order'] ) ? 'ASC' : 'DESC' );
+        $_SESSION[ 'post-order' ] = ( 'ASC' == $_POST['post-order'] ) ? 'ASC' : 'DESC';
     }
 
     if( isset( $_POST[ 'post-order-by' ] ) ) {
-        $_SESSION[ 'post-order-by' ] = ( 'price' == $_POST['post-order-by'] ) ? 'price' : 'date' );
+        $_SESSION[ 'post-order-by' ] = ( 'price' == $_POST['post-order-by'] ) ? 'price' : 'date';
     }
 
     // S'il n'y a pas d'ordre de défini, on en met un par défaut

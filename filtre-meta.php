@@ -22,7 +22,6 @@ if( ! isset( $_SESSION[ 'post-piscine' ] ) )
 //dans la condition
 if( false !== $_SESSION[ 'post-piscine' ] ) {
     $q->set( 'meta_query', array(
-        'relation' => 'AND',
         array(
             'key' => '_equipement',
             'value'    => 'piscine',

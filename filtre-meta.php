@@ -9,7 +9,7 @@ $piscine = $_SESSION[ 'post-piscine' ];
 <?php
 
 
-//dans switch_session() on sauvegarde la valeur de post-genre,
+//dans switch_session() on sauvegarde la valeur de post-piscine,
 //on sinon on en défini une par défaut
 if( isset( $_POST[ 'post-piscine' ] ) ) {
     $_SESSION[ 'post-piscine' ] = ( 1 == $_POST[ 'post-piscine' ] ) ? true : false;

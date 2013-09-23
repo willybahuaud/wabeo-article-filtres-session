@@ -1,18 +1,12 @@
 <?php
 
 //on ajoute ce champ de formulaire
-$genre = $_SESSION[ 'post-genre' ];
-$terms = get_terms( 'genre-bien' );
+$genre = $_SESSION[ 'post-piscine' ];
+$terms = get_terms( 'piscine-bien' );
 if( ! is_wp_error( $terms ) {
 ?>
-    <p><label for="post-genre">Types de biens :</label>
-    <select id="post-genre" name="post-genre" onchange="this.form.submit()">
-        <option value="">Tous</option>
-        <?php
-        foreach( $terms as $term )
-            echo '<option value="' . esc_attr( $term->slug ) . '" ' . selected( $term->slug, $genre, false ) . '>' . esc_html( $term->name ) . '</option>';
-        ?>
-    </select></p>
+    <p><label for="post-piscine">Piscine</label>
+    <input type="checkbox" value="1" id="post-piscine" name="post-piscine"></p>
 <?php
 }
 
